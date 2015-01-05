@@ -1,0 +1,208 @@
+##pythone 2.7
+print 'choose one number to determine your command'
+print '1 for Add Student'
+print '2 for Remove Student'
+print '3 for Edit Student'
+print '4 for Display student Details'
+print '5 for Display Student With Maximum Average'
+print '6 for Display Average of class'
+print '7 for Search student with name'
+print '8 for Sort student by average'
+print '9 for Filter student by enter university year'
+print '810 for EXIT'
+
+sid = []
+
+while 1:
+    f=int(raw_input("Enter a number : "))
+    if f==810:
+        break
+    
+    if f==1 :
+        mobin = 1
+        SID=raw_input("Enter student number :\n")
+        sid.append('A')
+        i=0
+        while 1:
+            if i>len(sid):
+                break
+            if SID == sid[i]:
+                print 'Error 926742: same student number'
+                mobin=-1
+                break
+            i+=5
+        del sid[(len(sid)-1)]
+        if mobin != -1:
+	    sid.append(SID)
+            sid.append(raw_input("Enter student first name and last name :\n"))
+            sid.append(raw_input("Enter student reshte :\n"))
+            sid.append(raw_input("Enter student enter university year:\n"))
+            sid.append(raw_input("Enter student average :\n"))
+            f=open("mobin.dat","w")
+            for i in range(0,len(sid)):
+                if i%5==4:
+                    f.write(sid[i])
+                    f.write("\n")
+                else:
+                    f.write(sid[i])
+                    f.write(",")
+            f.close()
+
+    if f==2 :
+        SID2 = raw_input("Enter student number :\n")
+        i=0
+        while 1 :
+            if i>=len(sid):
+                break
+            if SID2 == sid[i]:
+                del sid[i]
+                del sid[i]
+                del sid[i]
+                del sid[i]
+                del sid[i]
+                f=open("mobin.dat","w")
+                for i in range(0,len(sid)):
+                    if i%5==4:
+                        f.write(sid[i])
+                        f.write("\n")
+                    else:
+                        f.write(sid[i])
+                        f.write(",")
+                f.close()
+                break
+            i+=5
+
+    if f==3 :
+        SID3 = raw_input("Enter student number :\n")
+        i=0
+        while 1:
+            if i>=len(sid):
+                break
+            if SID3 == sid[i]:
+                sid[i+1] = raw_input("Enter student edited first name and last name :\n")
+                sid[i+2] = raw_input("Enter student edited reshte:\n")
+                sid[i+3] = raw_input("Enter student edited enter university year :\n")
+                sid[i+4] = raw_input("Enter student edited average :\n")
+                f=open("mobin.dat","w")
+                for i in range(0,len(sid)):
+                    if i%5==4:
+                        f.write(sid[i])
+                        f.write("\n")
+                    else:
+                        f.write(sid[i])
+                        f.write(",")
+                f.close()
+                break
+            i+=5
+
+    if f==4 :
+        SID4 = raw_input("Enter student number :\n")
+        i=0
+        while 1:
+            if i>=len(sid):
+                break
+            if SID4 == sid[i]:
+                print 'Student detail is : %s,%s,%s,%s,%s'%(sid[i],sid[i+1],sid[i+2],sid[i+3],sid[i+4])
+                break
+            i+=5
+
+    if f==5:
+        i=4
+        k=0
+        max=float(sid[i])
+        while 1:
+            i+=5
+            if (i>=len(sid)):
+                break
+            if float(sid[i])>max:
+                max=float(sid[i])
+                j= i-4
+        print 'This student have mux average :'
+        print 'SID : %s ,Name : %s ,Reshte : %s ,Enter university year : %s ,Average :%s'%( sid[j],sid[j+1],sid[j+2],sid[j+3],sid[j+3],sid[j+4] )
+
+    if f==6:
+        i=4
+        j=1
+        sum=float(sid[i])
+        while(1):
+            i+=5
+            if ( i > len(sid)):
+                break
+            sum+=float(sid[i])
+            j+=1
+        ave=float(sum)/j
+        print 'the average of all of the students is:',ave
+
+    if f==7 :
+        SID7 = raw_input("Enter student name :\n")
+        i=1
+	mobin=-1
+        while 1:
+            if i>=len(sid):
+                break
+            if SID7 == sid[i]:
+                print 'Student detail is : %s,%s,%s,%s,%s'%(sid[i],sid[i+1],sid[i+2],sid[i+3],sid[i+4])
+                break
+	        mobin = 1
+            i+=5
+	if mobin != 1:
+		print 'No student with this name please check the name'
+
+    if f==8 :
+	j=-1
+	while 1:
+		j+=5
+		if j>=len(sid):
+			break
+		muxAvg = sid[j]
+		muxAvgNu=-1
+		k=j
+		while 1:
+			k+=5
+			if k>=len(sid):
+				break
+			if(sid[k] > muxAvg)
+				muxAvg=sid[k]
+				muxAvgNu=k
+		if muxAvgNu != -1:	
+			mobin80=sid[j-4]
+			mobin81=sid[j-3]
+			mobin82=sid[j-2]
+			mobin83=sid[j-1]
+			mobin84=sid[j]
+			sid[j-4]=sid[muxAvgNu-4]
+			sid[j-3]=sid[muxAvgNu-3]
+			sid[j-2]=sid[muxAvgNu-2]
+			sid[j-1]=sid[muxAvgNu-1]
+			sid[j]=sid[muxAvgNu]
+			sid[muxAvgNu-4]=mobin80
+			sid[muxAvgNu-3]=mobin81
+			sid[muxAvgNu-2]=mobin82
+			sid[muxAvgNu-1]=mobin83
+			sid[muxAvgNu]=mobin84
+		f=open("mobin.dat","w")
+                for i in range(0,len(sid)):
+                    if i%5==4:
+                        f.write(sid[i])
+                        f.write("\n")
+                    else:
+                        f.write(sid[i])
+                        f.write(",")
+                f.close()
+	print 'Done'
+
+    if f==9 :
+	SID9 = raw_input("Enter student enter university year :\n")
+        i=3
+	mobin=-1
+        while 1:
+            if i>=len(sid):
+                break
+            print '\n'
+            if SID9 == sid[i]:
+                print 'Student detail is : %s,%s,%s,%s,%s'%(sid[i],sid[i+1],sid[i+2],sid[i+3],sid[i+4])
+                break
+		mobin = 1
+            i+=5
+	if mobin != 1:
+		print 'No student with this enter university year please check the name'

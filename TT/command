@@ -1,0 +1,34 @@
+DATABASE
+signup
+signin
+signout
+filter
+comment
+exit
+add_user // possible for manager
+remove_user_from_board // .too
+/////////////
+masterName
+bool is_signin
+
+BOARD: P DATABASE
+show_boards
+enter_board
+create_board // .too
+remove_board // .too
+
+LIST: P BOARD
+show_lists
+add_list
+remove_list
+
+CARD: P LIST
+show_cards
+add_card
+remove_card
+move_card
+rename_card
+edit_card_description
+edit_card_due_date
+assign_user // to cart
+remove_user // to cart
